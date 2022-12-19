@@ -2,30 +2,30 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type ToDo {
-  id: Int!
-  title: String!
-  content: String
+type To_doEntity {
+  ID: Float!
+  To_Do_Name: String!
+  To_Do_Date: DateTime!
+  To_Do_Time: DateTime!
+  Remark: String!
 }
 
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Query {
-  todos: [ToDo!]!
-  findOne(id: Int!): ToDo!
+  ToDos: [To_doEntity!]!
 }
 
 type Mutation {
-  createToDo(createToDoInput: CreateToDoInput!): ToDo!
-  updateToDo(updateToDoInput: UpdateToDoInput!): ToDo!
-  removeToDo(id: Int!): ToDo!
+  createToDo(data: To_doInput!): String!
 }
 
-input CreateToDoInput {
-  title: String!
-  content: String!
-}
-
-input UpdateToDoInput {
-  title: String
-  content: String
-  id: Int!
+input To_doInput {
+  To_Do_Name: String!
+  To_Do_Date: String!
+  To_Do_Time: String!
+  Remark: String!
 }
